@@ -5,8 +5,8 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-app.get("/api/beyond", (req, res) => {
-  return res.status(404).send("File not found");
+app.get("/", (req, res) => {
+  return;
 });
 
 app.listen(PORT, () => {

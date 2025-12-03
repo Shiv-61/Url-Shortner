@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortner</title>
+    <style>
+      body {
+        background-color: rgb(22, 22, 22);
+      }
+      #url {
+        border-radius: 20px;
+        height: 2.2rem;
+        width: 30.7rem;
+        border-width: 2px;
+        border-style: ridge;
+        text-align: center;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      #url:focus {
+        border-color: rgb(132, 235, 15);
+        border-width: 7px;
+      }
+      input[type="submit"] {
+        height: 2.2rem;
+        width: 20.2rem;
+        border-width: 7px;
+        border-radius: 10px;
+        border-style: solid;
+        background-color: greenyellow;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="theme" onclick="change_theme()">Theme</button>
+    <center>
+      <h1
+        style="
+          color: white;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        "
+      >
+        Url Shortner
+      </h1>
+      <form action="index.html" method="post">
+        <input
+          type="text"
+          name="url"
+          id="url"
+          placeholder="Enter URL to be Shorten"
+        />
+        <br />
+        <br />
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div class="div1">The link will arrive here</div>
+    </center>
+    <script>
+      function change_theme() {
+        const btn = document.getElementById("theme");
+      }
+    </script>
+  </body>
+</html>
