@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortner</title>
+
     <style>
       body {
         background-color: black;
         color: white;
         scroll-behavior: smooth;
         transition: 0.3s ease-in-out;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
 
-      #url {
+      .input-box {
         border-radius: 20px;
         height: 2.4rem;
         width: 35rem;
@@ -21,18 +23,10 @@
         text-align: center;
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
           "Lucida Sans", Arial, sans-serif;
-
         background-color: #333;
         color: white;
+        transition: 0.3s ease-in-out;
       }
-
-      #url:focus {
-        border-color: rgb(132, 235, 15);
-        border-width: 3px;
-        transition: ease-out 0.3s;
-        box-shadow: 0 0 20px rgb(132, 235, 15);
-      }
-
       input[type="submit"] {
         height: 3rem;
         width: 20.2rem;
@@ -43,23 +37,30 @@
         font-weight: 900;
         border-style: solid;
         background-color: greenyellow;
-        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
         color: black;
+        transition: 0.3s ease-in-out;
       }
+
       input[type="submit"]:hover {
         box-shadow: 0 0 20px rgb(132, 235, 15);
-        transition: ease-in 0.3s;
       }
+
+      .copy-btn:hover {
+        background-color: rgb(132, 235, 15);
+        transition: 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
       .div1 {
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-weight: bolder;
       }
+
       #theme {
         height: 1.9rem;
         width: 4.7rem;
         border-radius: 7px;
         border-style: solid;
         cursor: pointer;
+        margin-top: 10px;
       }
     </style>
   </head>
@@ -68,20 +69,13 @@
     <button id="theme" onclick="change_theme()">Theme</button>
 
     <center>
-      <h1
-        style="
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
-          font-weight: bolder;
-        "
-      >
-        Url Shortner
-      </h1>
+      <h1 style="font-weight: bolder">Url Shortner</h1>
 
       <form action="index.html" method="post">
         <input
           type="text"
           name="url"
-          id="url"
+          class="input-box"
           style="margin-top: 1.7rem"
           placeholder="Enter URL to be Shorten"
         />
@@ -90,21 +84,34 @@
       </form>
 
       <br /><br />
+
       <div class="div1" style="float: left; margin-left: 23.4rem">
         🔗The link will arrive here :
       </div>
+
       <br />
+      <br />
+      <br />
+
       <input
         type="text"
-        style="height: 2.5rem; width: 25rem; border-radius: 20px"
+        class="input-box"
+        style="width: 25rem"
+        readonly
+        placeholder="Shortened URL appears here"
+        id="output"
       />
+
       <button
         onclick="copy_url()"
+        class="copy-btn"
         style="
           height: 2.9rem;
           width: 4.7rem;
           border-radius: 15px;
           cursor: pointer;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-weight: bolder;
         "
       >
         Copy
@@ -116,14 +123,32 @@
         const body = document.body;
 
         if (body.style.backgroundColor === "black") {
-          // switch to light theme
           body.style.backgroundColor = "white";
           body.style.color = "black";
+          document.querySelectorAll(".input-box").forEach((el) => {
+            el.style.backgroundColor = "white";
+            el.style.color = "black";
+          });
         } else {
-          // switch back to dark theme
           body.style.backgroundColor = "black";
           body.style.color = "white";
+          document.querySelectorAll(".input-box").forEach((el) => {
+            el.style.backgroundColor = "#333";
+            el.style.color = "white";
+          });
         }
+      }
+
+      function copy_url() {
+        const copyText = document.getElementById("output");
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+        const btn = document.querySelector(".copy-btn");
+
+        btn.innerText = "Copied!";
+        setTimeout(() => {
+          btn.innerText = "Copy";
+        }, 1500);
       }
     </script>
   </body>
