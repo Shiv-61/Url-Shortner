@@ -4,64 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortner</title>
-
     <style>
       body {
-        background-color: white;
-        color: black;
-        transition: 0.5s ease-in-out;
-      }
-      .dark {
-        background-color: rgb(22, 22, 22);
+        background-color: black;
         color: white;
+        scroll-behavior: smooth;
+        transition: 0.3s ease-in-out;
       }
 
       #url {
         border-radius: 20px;
-        height: 2.2rem;
-        width: 30.7rem;
-        border-width: 2px;
+        height: 2.4rem;
+        width: 35rem;
+        border-width: 3px;
         border-style: ridge;
         text-align: center;
         font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
           "Lucida Sans", Arial, sans-serif;
-        background-color: white;
-        color: black;
-      }
 
-      /* Input field in dark mode */
-      .dark #url {
         background-color: #333;
         color: white;
       }
 
       #url:focus {
         border-color: rgb(132, 235, 15);
-        border-width: 7px;
+        border-width: 3px;
+        transition: ease-out 0.3s;
+        box-shadow: 0 0 20px rgb(132, 235, 15);
       }
 
       input[type="submit"] {
-        height: 2.2rem;
+        height: 3rem;
         width: 20.2rem;
-        border-width: 7px;
-        border-radius: 10px;
+        border-width: 3px;
+        border-radius: 30px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        font-weight: 900;
         border-style: solid;
         background-color: greenyellow;
-        color: black;
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        color: black;
       }
-
-      /* Submit button in dark mode */
-      .dark input[type="submit"] {
-        background-color: limegreen;
-        color: white;
+      input[type="submit"]:hover {
+        box-shadow: 0 0 20px rgb(132, 235, 15);
+        transition: ease-in 0.3s;
       }
-
+      .div1 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: bolder;
+      }
       #theme {
-        margin: 20px;
-        padding: 10px 20px;
-        border-radius: 10px;
-        border: none;
+        height: 1.9rem;
+        width: 4.7rem;
+        border-radius: 7px;
+        border-style: solid;
         cursor: pointer;
       }
     </style>
@@ -71,26 +68,62 @@
     <button id="theme" onclick="change_theme()">Theme</button>
 
     <center>
-      <h1>URL Shortner</h1>
+      <h1
+        style="
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-weight: bolder;
+        "
+      >
+        Url Shortner
+      </h1>
 
       <form action="index.html" method="post">
         <input
           type="text"
           name="url"
           id="url"
+          style="margin-top: 1.7rem"
           placeholder="Enter URL to be Shorten"
         />
         <br /><br /><br />
         <input type="submit" value="Submit" />
       </form>
 
-      <br /><br /><br /><br /><br />
-      <div class="div1">The link will arrive here</div>
+      <br /><br />
+      <div class="div1" style="float: left; margin-left: 23.4rem">
+        🔗The link will arrive here :
+      </div>
+      <br />
+      <input
+        type="text"
+        style="height: 2.5rem; width: 25rem; border-radius: 20px"
+      />
+      <button
+        onclick="copy_url()"
+        style="
+          height: 2.9rem;
+          width: 4.7rem;
+          border-radius: 15px;
+          cursor: pointer;
+        "
+      >
+        Copy
+      </button>
     </center>
 
     <script>
       function change_theme() {
-        document.body.classList.toggle("dark");
+        const body = document.body;
+
+        if (body.style.backgroundColor === "black") {
+          // switch to light theme
+          body.style.backgroundColor = "white";
+          body.style.color = "black";
+        } else {
+          // switch back to dark theme
+          body.style.backgroundColor = "black";
+          body.style.color = "white";
+        }
       }
     </script>
   </body>
