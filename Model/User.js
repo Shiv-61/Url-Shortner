@@ -1,12 +1,23 @@
 const mongoose = require("mongoose");
 
-const User = new mongoose.Schema(
+const UrlSchema = new mongoose.Schema(
   {
-    name: String,
-    old_url: String,
-    new_url: String,
+    originalUrl: {
+      type: String,
+      required: true,
+    },
+    shortCode: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    shortUrl: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
-const users = mongoose.model("users", User);
-module.exports = users;
+
+const Url = mongoose.model("urls", UrlSchema);
+module.exports = Url;

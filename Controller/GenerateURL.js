@@ -1,10 +1,13 @@
-function generate_url(url) {
+function generate_url() {
   let new_url = "";
-  for (let index = 0; index < 5; index++) {
-    const charCode = Math.floor(Math.random() * 122 - 97 + 1) + 97;
-    new_url += String.fromCharCode(charCode);
+  const chars =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  for (let i = 0; i < 6; i++) {
+    new_url += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-  return JSON.parse(new_url);
+
+  return new_url;
 }
 
 module.exports = generate_url;
