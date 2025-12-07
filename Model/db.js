@@ -3,7 +3,7 @@ require("dotenv").config();
 function connect() {
   mongoose
     .connect(process.url)
-    .then(() => console.log("DB Connected"))
+    .then()
     .catch(() => console.log("DB Connection Error"));
 }
 module.exports = connect();
