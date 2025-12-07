@@ -1,9 +1,14 @@
 const express = require("express");
-
+const gen_url = require("./GenerateURL");
 const router = express.Router();
 
-router.get("/generate-url", (req, res) => {
-  res.send("Hello this is the generated URL");
+router.post("/generate-url", (req, res) => {
+  const get_new_url = gen_url(req.body.url);
+  res.status(200).json({
+    originalUrl: longUrl,
+    shortUrl: `https://shortly.com/${get_new_url}`,
+    shortCode: shortCode,
+  });
 });
 
 module.exports = router;
