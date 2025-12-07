@@ -4,84 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>URL Shortner</title>
-
-    <style>
-      body {
-        background-color: black;
-        color: white;
-        scroll-behavior: smooth;
-        transition: 0.3s ease-in-out;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-      }
-
-      .input-box {
-        border-radius: 20px;
-        height: 2.4rem;
-        width: 35rem;
-        border-width: 3px;
-        border-style: ridge;
-        text-align: center;
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-          "Lucida Sans", Arial, sans-serif;
-        background-color: #333;
-        color: white;
-        transition: 0.3s ease-in-out;
-      }
-      #output {
-        border-radius: 20px;
-        height: 2.4rem;
-        width: 35rem;
-        border-width: 3px;
-        border-style: ridge;
-        text-align: center;
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-          "Lucida Sans", Arial, sans-serif;
-        background-color: #333;
-        color: white;
-        transition: 0.3s ease-in-out;
-      }
-      .input-box:focus {
-        box-shadow: 0 0 15px greenyellow;
-      }
-      .input-box:hover {
-        box-shadow: 0 0 15px greenyellow;
-      }
-      input[type="submit"] {
-        height: 3rem;
-        width: 20.2rem;
-        border-width: 3px;
-        border-radius: 30px;
-        font-size: 1.3rem;
-        cursor: pointer;
-        font-weight: 900;
-        border-style: solid;
-        background-color: greenyellow;
-        color: black;
-        transition: 0.3s ease-in-out;
-      }
-
-      input[type="submit"]:hover {
-        box-shadow: 0 0 20px rgb(132, 235, 15);
-      }
-
-      .copy-btn:hover {
-        background-color: rgb(132, 235, 15);
-        transition: 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-      }
-
-      .div1 {
-        font-weight: bolder;
-      }
-
-      #theme {
-        height: 1.9rem;
-        width: 4.7rem;
-        border-radius: 7px;
-        border-style: solid;
-        cursor: pointer;
-        margin-top: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -135,69 +58,7 @@
         Copy
       </button>
     </center>
-    <script>
-      const form = document.getElementById("form");
 
-      function change_theme() {
-        const body = document.body;
-        if (body.style.backgroundColor === "black") {
-          body.style.backgroundColor = "white";
-          body.style.color = "black";
-          document.querySelectorAll(".input-box").forEach((el) => {
-            el.style.backgroundColor = "white";
-            el.style.color = "black";
-          });
-          document.getElementById("output").style.backgroundColor = "white";
-          document.getElementById("output").style.color = "black";
-        } else {
-          body.style.backgroundColor = "black";
-          body.style.color = "white";
-          document.querySelectorAll(".input-box").forEach((el) => {
-            el.style.backgroundColor = "#333";
-            el.style.color = "white";
-          });
-          document.getElementById("output").style.backgroundColor = "#333";
-          document.getElementById("output").style.color = "white";
-        }
-      }
-      function copy_url() {
-        const copyText = document.getElementById("output");
-        copyText.select();
-        navigator.clipboard.writeText(copyText.value);
-        const btn = document.querySelector(".copy-btn");
-        btn.innerText = "Copied!";
-        setTimeout(() => {
-          btn.innerText = "Copy";
-        }, 1500);
-      }
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const long_url = document.querySelector(".input-box").value;
-
-        try {
-          const response = await fetch("http://localhost:3000/url", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ url: long_url }),
-          });
-
-          if (!response.ok) {
-            throw new Error("Failed to shorten URL");
-          }
-
-          const data = await response.json();
-          console.log("SERVER:", data);
-
-          document.getElementById("output").value = data.shortUrl;
-        } catch (err) {
-          console.error("ERROR:", err);
-          alert("Backend not running!");
-        }
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

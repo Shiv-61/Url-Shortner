@@ -1,0 +1,79 @@
+body {
+  background-color: black;
+  color: white;
+  scroll-behavior: smooth;
+  transition: 0.3s ease-in-out;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.input-box {
+  border-radius: 20px;
+  height: 2.4rem;
+  width: 35rem;
+  border-width: 3px;
+  border-style: ridge;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: #333;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+#output {
+  border-radius: 20px;
+  height: 2.4rem;
+  width: 35rem;
+  border-width: 3px;
+  border-style: ridge;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: #333;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+.input-box:focus {
+  box-shadow: 0 0 15px greenyellow;
+}
+
+.input-box:hover {
+  box-shadow: 0 0 15px greenyellow;
+}
+
+input[type="submit"] {
+  height: 3rem;
+  width: 20.2rem;
+  border-width: 3px;
+  border-radius: 30px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  font-weight: 900;
+  border-style: solid;
+  background-color: greenyellow;
+  color: black;
+  transition: 0.3s ease-in-out;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 20px rgb(132, 235, 15);
+}
+
+.copy-btn:hover {
+  background-color: rgb(132, 235, 15);
+  transition: 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.div1 {
+  font-weight: bolder;
+}
+
+#theme {
+  height: 1.9rem;
+  width: 4.7rem;
+  border-radius: 7px;
+  border-style: solid;
+  cursor: pointer;
+  margin-top: 10px;
+}
