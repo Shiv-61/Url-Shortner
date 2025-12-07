@@ -40,15 +40,18 @@ form.addEventListener("submit", async (e) => {
   const long_url = document.querySelector(".input-box").value;
 
   try {
-    const response = await fetch("http://localhost:3000/url", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url: long_url,
-      }),
-    });
+    const response = await fetch(
+      "https://url-shortner-voyager.vercel.app/url",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url: long_url,
+        }),
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to shorten URL");

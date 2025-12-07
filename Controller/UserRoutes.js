@@ -7,7 +7,7 @@ router.post("/url", async (req, res) => {
   try {
     const longUrl = req.body.url;
     const shortCode = gen_url();
-    const shortUrl = `http://localhost:3000/${shortCode}`;
+    const shortUrl = `https://url-shortner-voyager.vercel.app/${shortCode}`;
 
     const newUrl = await Url.create({
       originalUrl: longUrl,
