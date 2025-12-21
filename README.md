@@ -1,9 +1,9 @@
 # URL SHORTENER PROJECT
 
 A simple and efficient URL Shortener web application built using Node.js and Express.js.  
-This project allows users to convert long URLs into short, easy-to-share links and automatically redirects users to the original URL when the shortened link is accessed.
+This project allows users to convert long URLs into short, easy-to-share links to users and  redirected to the original URL when the shortened link is accessed.
 
-This project is ideal for learning:
+This project helped in learning:
 - Backend development using Node.js
 - REST API creation
 - Routing with Express
@@ -60,7 +60,7 @@ Follow the steps below to run this project on your local machine:
 ### 1. Generate Short URL
 
 Method: POST  
-Endpoint: /generate  
+Endpoint: /url  
 Body (JSON):
 
 {
@@ -82,7 +82,6 @@ Endpoint:
 
 /abc123
 
-The browser will automatically redirect to the original website.
 
 --------------------------------------------
 
@@ -106,7 +105,7 @@ Root Folder
 
 --------------------------------------------
 
-## COMMON ERRORS HANDLED
+## COMMON ERRORS ENCOUNTER AND HANDLED 
 
 - Port mismatch fixed 
 - Invalid route handling  
