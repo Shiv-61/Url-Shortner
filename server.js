@@ -9,7 +9,7 @@ connect();
 
 app.use(
   cors({
-    origin: "https://url-shortner-voyager.vercel.app",
+    origin: "https://url-shortner-x65g.onrender.comORS",
     credentials: true,
   })
 );
