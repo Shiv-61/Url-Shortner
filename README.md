@@ -12,15 +12,15 @@ This project is ideal for learning:
 
 --------------------------------------------
 
+## Architecture
+![URL Shortner Architecture](assets/ui-preview.png)
+
 ## FEATURES
 
 - Convert long URLs into short links  
-- Automatic redirection to original URL  
-- REST API support  
-- JSON data handling  
-- Environment variable support using dotenv  
+- Implemented REST API   
+- JSON data handling   
 - Clean MVC folder structure  
-- Beginner-friendly backend project  
 
 --------------------------------------------
 
@@ -47,9 +47,9 @@ Follow the steps below to run this project on your local machine:
 
 5. Start the backend server using:
 
-   node app.js  
+   node server.js  
    OR  
-   nodemon app.js
+   nodemon server.js
 
 6. Server will start on the defined PORT inside your environment variable or default port
 
