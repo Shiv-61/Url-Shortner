@@ -39,24 +39,16 @@ form.addEventListener("submit", async (e) => {
 
   const long_url = document.querySelector(".input-box").value;
 
-  if (!long_url) {
-    alert("Enter URL first!");
-    return;
-  }
-
   try {
-    const response = await fetch(
-      "https://url-shortner-voyager.vercel.app/url",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          url: long_url,
-        }),
-      }
-    );
+    const response = await fetch("http://localhost:3000/url", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        url: long_url,
+      }),
+    });
 
     if (!response.ok) {
       throw new Error("Failed to shorten URL");
@@ -66,9 +58,8 @@ form.addEventListener("submit", async (e) => {
     console.log("SERVER:", data);
 
     document.getElementById("output").value = data.shortUrl;
-    alert("URL shortened! Copy and paste in browser to redirect.");
   } catch (err) {
     console.error("ERROR:", err);
-    alert("Backend not running or unreachable!");
+    alert("Backend not running!");
   }
 });
