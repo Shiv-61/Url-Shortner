@@ -7,7 +7,12 @@ const app = express();
 
 connect();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://url-shortner-voyager.vercel.app",
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "Views")));
