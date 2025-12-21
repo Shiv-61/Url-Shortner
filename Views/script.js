@@ -40,7 +40,7 @@ form.addEventListener("submit", async (e) => {
   const long_url = document.querySelector(".input-box").value;
 
   try {
-    const response = await fetch("https://url-shortner-x65g.onrender.com", {
+    const response = await fetch("https://url-shortner-x65g.onrender.com/url", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,6 +60,6 @@ form.addEventListener("submit", async (e) => {
     document.getElementById("output").value = data.shortUrl;
   } catch (err) {
     console.error("ERROR:", err);
-    alert("Backend not running!");
+    alert("Something went wrong");
   }
 });
