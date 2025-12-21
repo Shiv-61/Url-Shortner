@@ -9,7 +9,7 @@ connect();
 
 app.use(
   cors({
-    origin: "https://url-shortner-x65g.onrender.comORS",
+    origin: "https://url-shortner-x65g.onrender.com",
     credentials: true,
   })
 );
