@@ -22,8 +22,11 @@ router.post("/url", async (req, res) => {
       shortCode: newUrl.shortCode,
     });
   } catch (err) {
-    console.error("Error creating short URL:", err);
-    res.status(500).json({ error: "Failed to create short URL" });
+    console.error("Error creating short URL:", err.message);
+    console.error("Full error:", err);
+    res
+      .status(500)
+      .json({ error: "Failed to create short URL", details: err.message });
   }
 });
 
