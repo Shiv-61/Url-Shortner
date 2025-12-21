@@ -40,7 +40,7 @@ form.addEventListener("submit", async (e) => {
   const long_url = document.querySelector(".input-box").value;
 
   try {
-    const response = await fetch("http://localhost:3000/url", {
+    const response = await fetch("https://url-shortner-x65g.onrender.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
