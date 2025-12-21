@@ -13,7 +13,7 @@ This project is ideal for learning:
 --------------------------------------------
 
 ## Architecture
-![URL Shortner Architecture](assets/ui-preview.png)
+![URL Shortner Architecture](assets/url-Shortner-Arch.png)
 
 ## FEATURES
 
