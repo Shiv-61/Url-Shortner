@@ -50,12 +50,12 @@ form.addEventListener("submit", async (e) => {
       }),
     });
 
-    if (!response.ok) {
-      throw new Error("Failed to shorten URL");
-    }
-
     const data = await response.json();
-    console.log("SERVER:", data);
+
+    if (!response.ok) {
+      console.error("Backend error:", data);
+      throw new Error(data.error || "Failed to shorten URL");
+    }
 
     document.getElementById("output").value = data.shortUrl;
   } catch (err) {
