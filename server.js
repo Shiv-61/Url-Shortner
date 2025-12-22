@@ -9,7 +9,7 @@ connect();
 
 app.use(
   cors({
-    origin: "https://url-shortner-one-jet.vercel.app/",
+    origin: "https://url-shortner-one-jet.vercel.app",
     credentials: true,
   })
 );
