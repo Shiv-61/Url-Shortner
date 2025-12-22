@@ -7,7 +7,7 @@ router.post("/url", async (req, res) => {
   try {
     const longUrl = req.body.url;
     const shortCode = gen_url();
-    const shortUrl = `https://url-shortner-one-jet.vercel.app/${shortCode}`;
+    const shortUrl = `https://url-shortner-shivs-projects-5accaf4c.vercel.app/${shortCode}`;
 
     // make a new entry in DB
     const newUrl = await Url.create({
