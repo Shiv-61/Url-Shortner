@@ -41,7 +41,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(
-      "https://url-shortner-shivs-projects-5accaf4c.vercel.app/url",
+      "https://url-shortner-one-jet.vercel.app/url",
       {
         method: "POST",
         headers: {
