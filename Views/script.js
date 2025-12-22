@@ -40,15 +40,18 @@ form.addEventListener("submit", async (e) => {
   const long_url = document.querySelector(".input-box").value;
 
   try {
-    const response = await fetch("https://url-shortner-x65g.onrender.com/url", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        url: long_url,
-      }),
-    });
+    const response = await fetch(
+      "https://url-shortner-one-jet.vercel.app/url",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          url: long_url,
+        }),
+      }
+    );
 
     const data = await response.json();
 
