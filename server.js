@@ -4,6 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const connect = require("./Model/db");
 const app = express();
+export const config = { runtime: "edge" };
 
 connect();
 
