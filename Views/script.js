@@ -50,7 +50,7 @@ form.addEventListener("submit", async (e) => {
   if (isValidHttpUrl(long_url)) {
     try {
       const response = await fetch(
-        "https://url-shortner-mauve-nine.vercel.app",
+        "https://url-shortner-mauve-nine.vercel.app/url",
         {
           method: "POST",
           headers: {
