@@ -9,10 +9,8 @@ connect();
 
 app.use(
   cors({
-    origin: "https://url-shortner-one-jet.vercel.app",
+    origin: ["https://url-shortner-mauve-nine.vercel.app"],
     credentials: true,
-    methods: ["GET", "POST", "OPTIONS"],
-    allowedHeaders: ["Content-Type"],
   })
 );
 app.use(express.json());
