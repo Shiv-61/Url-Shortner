@@ -10,54 +10,40 @@
 
   <body>
     <button id="theme" onclick="change_theme()">Theme</button>
-    <center>
-      <h1 style="font-weight: bolder">Url Shortner</h1>
+    <main class="container">
+      <h1 class="title">Url Shortner</h1>
 
-      <form id="form" method="post">
+      <form id="form" method="post" class="url-form">
         <input
           type="text"
           name="url"
           class="input-box"
-          style="margin-top: 1.7rem"
           placeholder="Enter URL to be Shorten"
         />
-        <br /><br /><br />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" class="submit-btn" />
       </form>
 
-      <br /><br />
+      <div class="result-section">
+        <div class="div1">
+          🔗The link will arrive here :
+        </div>
 
-      <div class="div1" style="float: left; margin-left: 23.4rem">
-        🔗The link will arrive here :
+        <input
+          type="text"
+          class="output-box"
+          readonly
+          placeholder="Shortened URL appears here"
+          id="output"
+        />
+
+        <button
+          onclick="copy_url()"
+          class="copy-btn"
+        >
+          Copy
+        </button>
       </div>
-
-      <br />
-      <br />
-      <br />
-
-      <input
-        type="text"
-        style="width: 25rem"
-        readonly
-        placeholder="Shortened URL appears here"
-        id="output"
-      />
-
-      <button
-        onclick="copy_url()"
-        class="copy-btn"
-        style="
-          height: 2.9rem;
-          width: 4.7rem;
-          border-radius: 15px;
-          cursor: pointer;
-          font-family: Verdana, Geneva, Tahoma, sans-serif;
-          font-weight: bolder;
-        "
-      >
-        Copy
-      </button>
-    </center>
+    </main>
 
     <script src="script.js"></script>
   </body>

@@ -1,26 +1,7 @@
 const form = document.getElementById("form");
 
 function change_theme() {
-  const body = document.body;
-  if (body.style.backgroundColor === "black") {
-    body.style.backgroundColor = "white";
-    body.style.color = "black";
-    document.querySelectorAll(".input-box").forEach((el) => {
-      el.style.backgroundColor = "white";
-      el.style.color = "black";
-    });
-    document.getElementById("output").style.backgroundColor = "white";
-    document.getElementById("output").style.color = "black";
-  } else {
-    body.style.backgroundColor = "black";
-    body.style.color = "white";
-    document.querySelectorAll(".input-box").forEach((el) => {
-      el.style.backgroundColor = "#333";
-      el.style.color = "white";
-    });
-    document.getElementById("output").style.backgroundColor = "#333";
-    document.getElementById("output").style.color = "white";
-  }
+  document.body.classList.toggle("light-theme");
 }
 
 function copy_url() {
