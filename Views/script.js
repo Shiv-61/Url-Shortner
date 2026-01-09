@@ -1,5 +1,18 @@
 const form = document.getElementById("form");
 
+// Function to wake up the server
+const wakeUpServer = async () => {
+  try {
+    await fetch("https://url-shortner-mauve-nine.vercel.app/health");
+    console.log("Wake-up ping sent successfully");
+  } catch (error) {
+    console.error("Failed to ping server:", error);
+  }
+};
+
+// Call immediately when script loads
+wakeUpServer();
+
 function change_theme() {
   document.body.classList.toggle("light-theme");
 }

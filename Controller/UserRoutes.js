@@ -3,6 +3,12 @@ const gen_url = require("./GenerateURL");
 const Url = require("../Model/User");
 const router = express.Router();
 
+
+// Health check / Wake-up endpoint
+router.get("/health", (req, res) => {
+  res.status(200).json({ status: "Active", message: "Server is awake" });
+});
+
 router.post("/url", async (req, res) => {
   try {
     const longUrl = req.body.url;
