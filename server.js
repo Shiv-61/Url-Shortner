@@ -5,6 +5,10 @@ const cors = require("cors");
 const connect = require("./Model/db");
 const app = express();
 
+console.log("[DEBUG] Server initialization started");
+console.log("[DEBUG] Environment:", process.env.NODE_ENV || 'development');
+console.log("[DEBUG] PORT:", process.env.PORT || 3000);
+
 connect();
 
 app.use(
