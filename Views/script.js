@@ -28,33 +28,73 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const long_url = document.querySelector(".input-box").value;
+  const outputBox = document.getElementById("output");
+  const submitBtn = document.querySelector(".submit-btn");
+  const originalBtnText = submitBtn.value;
+
   if (isValidHttpUrl(long_url)) {
-    try {
-      const response = await fetch(
-        "https://url-shortner-mauve-nine.vercel.app/url",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            url: long_url,
-          }),
+    // Reset UI
+    outputBox.value = "";
+    submitBtn.classList.add("loading");
+    submitBtn.disabled = true;
+    submitBtn.value = "Shortening...";
+
+    const maxRetries = 4;
+    const retryDelay = 3000; // 3 seconds
+    let attempt = 0;
+    let success = false;
+
+    while (attempt <= maxRetries && !success) {
+      try {
+        if (attempt > 0) {
+           outputBox.value = "Server waking up… please wait";
+           submitBtn.value = "Waking up...";
         }
-      );
 
-      const data = await response.json();
+        const response = await fetch(
+          "https://url-shortner-mauve-nine.vercel.app/url",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              url: long_url,
+            }),
+          }
+        );
 
-      if (!response.ok) {
-        console.error("Backend error:", data);
-        throw new Error(data.error || "Failed to shorten URL");
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Failed to shorten URL");
+        }
+
+        // Success!
+        document.getElementById("output").value = data.shortUrl;
+        success = true;
+
+      } catch (err) {
+        console.error(`Attempt ${attempt + 1} failed:`, err);
+        
+        if (attempt < maxRetries) {
+          // Wait before retrying
+          await new Promise(resolve => setTimeout(resolve, retryDelay));
+          attempt++;
+        } else {
+          // Final failure
+          console.error("All attempts failed.");
+          outputBox.value = "Error: Backend unreachable. Try again.";
+          alert("Something went wrong. Please try again later.");
+        }
       }
-
-      document.getElementById("output").value = data.shortUrl;
-    } catch (err) {
-      console.error("ERROR:", err);
-      alert("Something went wrong");
     }
+
+    // Reset Button
+    submitBtn.classList.remove("loading");
+    submitBtn.disabled = false;
+    submitBtn.value = originalBtnText;
+
   } else {
     alert("Invalid url");
   }
