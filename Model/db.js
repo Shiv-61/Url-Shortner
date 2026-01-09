@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 function connect() {
-  console.log("[DEBUG] Attempting to connect to MongoDB...");
-  console.log("[DEBUG] MONGO_URL exists:", !!process.env.MONGO_URL);
-  
   mongoose
     .connect(process.env.MONGO_URL, {
       serverSelectionTimeoutMS: 10000,
