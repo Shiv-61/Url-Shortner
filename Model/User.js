@@ -19,5 +19,8 @@ const UrlSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// TTL Index: automatically delete document 10 days (864000 seconds) after creation 
+UrlSchema.index({ createdAt: 1 }, { expireAfterSeconds: 864000 });
+
 const Url = mongoose.model("urls", UrlSchema);
 module.exports = Url;
