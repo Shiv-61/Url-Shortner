@@ -9,6 +9,8 @@ This project helped in learning:
 - Routing with Express
 - Database integration
 - Full-stack project structure
+- Redis caching for faster resolution
+- TTL implementation for automatic data expiration
 
 --------------------------------------------
 
@@ -21,6 +23,8 @@ This project helped in learning:
 - Implemented REST API   
 - JSON data handling   
 - Clean MVC folder structure  
+- Redis caching via Upstash for high performance redirection
+- Time-To-Live (TTL) expiration: URLs are automatically removed from Redis cache after 5 days and from the MongoDB database after 10 days.
 
 --------------------------------------------
 
@@ -29,7 +33,8 @@ This project helped in learning:
 - Node.js  
 - Express.js  
 - JavaScript  
-- MongoDB
+- MongoDB & Mongoose
+- Redis (Upstash)
 - Postman for API testing  
 
 --------------------------------------------
@@ -117,7 +122,6 @@ Root Folder
 
 ## FUTURE IMPROVEMENT AND SCALING
 
-- Add Redis for caching.
 - Capable of 10K requests.  
 
 --------------------------------------------
@@ -129,5 +133,7 @@ This project helps understand:
 - How redirection works in web servers
 - How URLs are stored in databases
 - How full-stack projects are structured
+- How to implement serverless Redis caching
+- How to use TTL indexes in MongoDB
 
 --------------------------------------------
